@@ -9,6 +9,11 @@ src_dirs := src src-bind $(phone_common_dir)/src
 res_dirs := res $(phone_common_dir)/res
 asset_dirs := assets
 
+include $(LOCAL_PATH)/version.mk
+
+LOCAL_AAPT_FLAGS += --version-name "$(version_name_package)"
+LOCAL_AAPT_FLAGS += --version-code $(version_code_package)
+
 LOCAL_SRC_FILES := $(call all-java-files-under, $(src_dirs))
 LOCAL_RESOURCE_DIR := $(addprefix $(LOCAL_PATH)/, $(res_dirs))
 LOCAL_ASSET_DIR := $(addprefix $(LOCAL_PATH)/, $(asset_dirs))
